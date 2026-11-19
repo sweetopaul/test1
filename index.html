@@ -1,0 +1,993 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Princess ❤️</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #8e2851;
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+/* =========================
+   BACKGROUND SLIDESHOW
+========================= */
+
+.background-slideshow {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    /* PERFECT FIT FOR PHONE */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    will-change: opacity;
+}
+
+.bg-photo.active {
+    opacity: 1;
+}
+
+.bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(35, 10, 25, 0.45);
+}
+
+/* =========================
+   COMMON PAGE DESIGN
+========================= */
+
+.page {
+    display: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+
+    padding: 30px 18px;
+
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    animation: appear 0.8s ease;
+
+    position: relative;
+    z-index: 1;
+
+    background: transparent !important;
+    color: white;
+}
+
+.page.active {
+    display: flex;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2 {
+    font-family: 'Pacifico', cursive;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.04);
+}
+
+/* =========================
+   PASSWORD PAGE
+========================= */
+
+.lock-box {
+    position: relative;
+
+    /* Center properly on all phones */
+    top: 0;
+
+    background: rgba(255,255,255,0.96);
+    color: #ed4b80;
+
+    padding: 35px 25px;
+    border-radius: 25px;
+
+    width: min(100%, 350px);
+
+    box-shadow: 0 15px 40px #9b315a55;
+}
+
+.lock-icon {
+    font-size: 75px;
+}
+
+.lock-box h1 {
+    font-size: 27px;
+    margin: 15px 0;
+}
+
+.lock-box p {
+    color: #888;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+#password {
+    margin-top: 22px;
+    padding: 14px;
+
+    width: 100%;
+
+    border: 2px solid #ffc0d3;
+    border-radius: 12px;
+
+    text-align: center;
+    outline: none;
+    font-size: 18px;
+}
+
+#password:focus {
+    border-color: #f04e88;
+    box-shadow: 0 0 10px #f04e8833;
+}
+
+.main-btn {
+    background: #f04e88;
+    color: white;
+
+    padding: 13px 30px;
+    border-radius: 30px;
+
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+#error {
+    color: red;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+/* =========================
+   GIFTS PAGE
+========================= */
+
+#giftsPage h1 {
+    font-size: clamp(28px, 7vw, 40px);
+    color: white;
+    text-shadow: 0 3px 12px #000;
+}
+
+#giftsPage h2 {
+    font-size: clamp(20px, 5vw, 30px);
+    color: white;
+    text-shadow: 0 3px 12px #000;
+}
+
+#giftsPage p {
+    color: white;
+    text-shadow: 0 2px 8px #000;
+    margin-top: 10px;
+}
+
+.gifts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+
+    margin: 35px 0;
+}
+
+.gift {
+    font-size: 75px;
+    cursor: pointer;
+    animation: bounce 1.5s infinite;
+    filter: drop-shadow(0 8px 8px #d85a7b44);
+}
+
+.gift:nth-child(2) {
+    animation-delay: .3s;
+}
+
+.gift:nth-child(3) {
+    animation-delay: .6s;
+}
+
+@keyframes bounce {
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+/* =========================
+   BIRTHDAY PAGE
+========================= */
+
+#birthdayPage {
+    overflow: hidden;
+}
+
+#birthdayPage h1 {
+    font-size: clamp(35px, 8vw, 55px);
+    color: #fff8df;
+    text-shadow: 0 5px 15px #69213e;
+}
+
+.birthday-card {
+    background: rgba(255,255,255,0.20);
+    border: 1px solid #ffffff60;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 30px 20px;
+    border-radius: 25px;
+
+    max-width: 520px;
+    width: 100%;
+
+    margin-top: 20px;
+}
+
+.birthday-card p {
+    line-height: 1.9;
+    margin-top: 15px;
+}
+
+.big-cake {
+    font-size: 100px;
+    margin: 15px;
+    animation: bounce 2s infinite;
+}
+
+/* =========================
+   CAKE PAGE
+========================= */
+
+.cake {
+    font-size: 130px;
+    margin: 20px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.cake.blown {
+    filter: grayscale(.2);
+    transform: scale(.9);
+}
+
+#cakeMessage {
+    font-size: 18px;
+    margin: 15px;
+}
+
+/* =========================
+   MEMORIES PAGE
+========================= */
+
+#memoryPage h1 {
+    font-size: clamp(28px, 7vw, 38px);
+    text-shadow: 0 3px 12px #000;
+}
+
+#memoryPage > p {
+    text-shadow: 0 2px 8px #000;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+
+    max-width: 500px;
+    width: 100%;
+
+    margin: 25px auto;
+}
+
+.memory {
+    background: white;
+    color: #bd4773;
+
+    padding: 8px 8px 15px;
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px #9f537522;
+    transform: rotate(-2deg);
+}
+
+.memory:nth-child(even) {
+    transform: rotate(3deg);
+}
+
+.memory img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 6px;
+}
+
+.memory p {
+    color: #bd4773;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* =========================
+   LETTER PAGE
+========================= */
+
+.letter {
+    max-width: 550px;
+    width: 100%;
+
+    padding: 30px 23px;
+
+    background: #fffaf0;
+    color: #774258;
+
+    border-radius: 12px;
+    box-shadow: 0 12px 30px #8f3c5c44;
+
+    text-align: left;
+    line-height: 2;
+
+    position: relative;
+}
+
+.letter h1 {
+    text-align: center;
+    color: #e04d83;
+    margin-bottom: 20px;
+}
+
+.letter p {
+    margin-bottom: 14px;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+
+    animation: float 6s linear forwards;
+
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 20px 14px;
+    }
+
+    /* PHONE BACKGROUND */
+    .background-slideshow {
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    .bg-photo {
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .bg-overlay {
+        background: rgba(25, 5, 18, 0.50);
+    }
+
+    .lock-box {
+        padding: 28px 20px;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .lock-icon {
+        font-size: 65px;
+    }
+
+    .lock-box h1 {
+        font-size: 26px;
+    }
+
+    #giftsPage h1 {
+        font-size: 29px;
+    }
+
+    .gift {
+        font-size: 60px;
+    }
+
+    .gifts {
+        gap: 20px;
+    }
+
+    .birthday-card {
+        padding: 25px 17px;
+    }
+
+    .big-cake {
+        font-size: 75px;
+    }
+
+    #birthdayPage h1 {
+        font-size: 36px;
+    }
+
+    .cake {
+        font-size: 100px;
+    }
+
+    #cakeMessage {
+        font-size: 15px;
+    }
+
+    .memory-grid {
+        gap: 10px;
+    }
+
+    .memory img {
+        height: 120px;
+    }
+
+    .memory p {
+        font-size: 11px;
+    }
+
+    .letter {
+        padding: 25px 18px;
+        font-size: 14px;
+    }
+
+}
+
+/* =========================
+   SMALL PHONE
+========================= */
+
+@media (max-width: 380px) {
+
+    .lock-box {
+        padding: 24px 16px;
+    }
+
+    .lock-box h1 {
+        font-size: 23px;
+    }
+
+    .lock-icon {
+        font-size: 55px;
+    }
+
+    .main-btn {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    .memory img {
+        height: 105px;
+    }
+
+    .memory-grid {
+        gap: 8px;
+    }
+
+}
+
+/* =========================
+   LANDSCAPE PHONE
+========================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .page {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .lock-box {
+        margin: 15px auto;
+    }
+
+}
+
+/* =========================
+   CSS END
+========================= */
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND SLIDESHOW -->
+
+<div class="background-slideshow">
+
+    <div class="bg-photo active" id="bgA"></div>
+    <div class="bg-photo" id="bgB"></div>
+
+    <div class="bg-overlay"></div>
+
+</div>
+
+<!-- PAGE 1: PASSWORD -->
+
+<section class="page active" id="lockPage">
+
+    <div class="lock-box">
+
+        <div class="lock-icon">🐻💗</div>
+
+        <h1>Hey Princess!</h1>
+
+        <p>A little surprise is waiting for you...</p>
+        <p>But first, enter your secret password ❤️</p>
+        <p>Password is the name i call you❤️</p>
+        <p>Hint:❤️</p>
+        <p>ALL SMALL LETTER</p>
+
+        <input type="password"
+               id="password"
+               placeholder="Enter secret password">
+
+        <button class="main-btn" onclick="unlock()">
+            UNLOCK MY SURPRISE 🔐
+        </button>
+
+        <p id="error"></p>
+
+    </div>
+
+</section>
+
+<!-- PAGE 2: GIFTS -->
+
+<section class="page" id="giftsPage">
+
+    <h2>MY WORLD TURNS 12 ❤️ ❤️ ❤️ ❤️</h2>
+
+    <h1>Hey Birthday Girl! 🎀</h1>
+
+    <p>Three little gifts are waiting for you!</p>
+    <p>Tap on any gift to open your surprise ❤️</p>
+
+    <div class="gifts">
+
+        <div class="gift" onclick="openBirthday()">🎁</div>
+        <div class="gift" onclick="openBirthday()">🎀</div>
+        <div class="gift" onclick="openBirthday()">🎁</div>
+
+    </div>
+
+    <p>Made with endless love by your brother 💗</p>
+
+</section>
+
+<!-- PAGE 3: BIRTHDAY -->
+
+<section class="page" id="birthdayPage">
+
+    <div class="birthday-card">
+
+        <div class="big-cake">🎂</div>
+
+        <h1>Happy Birthday!</h1>
+
+        <h2 id="sisterName">My Little Princess ❤️</h2>
+
+        <p>
+            Today is not just another day.
+            Today is the day someone very special
+            came into this world.
+        </p>
+
+        <p>
+            You are my happiness, my biggest
+            blessing, my world and one of the most precious
+            gifts in my life.
+        </p>
+
+        <p>Love you always, little sister! 🥹❤️</p>
+        <p>My biggest Weapon</p>
+
+        <button class="main-btn" onclick="showPage('cakePage')">
+            NEXT SURPRISE 💝
+        </button>
+
+    </div>
+
+</section>
+
+<!-- PAGE 4: MAKE A WISH -->
+
+<section class="page" id="cakePage">
+
+    <h1>Make a Wish! ✨</h1>
+
+    <p>Close your eyes and make a beautiful wish.</p>
+
+    <div class="cake" id="cake" onclick="blowCandles()">🎂</div>
+
+    <p id="cakeMessage">
+        Tap the cake to blow the candles! 🕯️
+    </p>
+
+    <button class="main-btn" onclick="showPage('memoryPage')">
+        SEE OUR MEMORIES 📸
+    </button>
+
+</section>
+
+<!-- PAGE 5: MEMORIES -->
+
+<section class="page" id="memoryPage">
+
+    <h1>Our Little Memories 📸</h1>
+
+    <p>Every moment with you is special.</p>
+
+    <div class="memory-grid">
+
+        <div class="memory">
+            <img src="heart1.jpg" alt="Memory 1">
+            <p>My favourite smile ❤️</p>
+        </div>
+
+        <div class="memory">
+            <img src="sista.jpeg" alt="Memory 2">
+            <p>Crazy little moments 🥰</p>
+        </div>
+
+        <div class="memory">
+            <img src="world.jpeg" alt="Memory 3">
+            <p>Forever my princess 🎀</p>
+        </div>
+
+        <div class="memory">
+            <img src="world1.jpg" alt="Memory 4">
+            <p>Memories forever 💗</p>
+        </div>
+
+    </div>
+
+    <button class="main-btn" onclick="showPage('letterPage')">
+        ONE LAST SURPRISE 💌
+    </button>
+
+</section>
+
+<!-- PAGE 6: LETTER -->
+
+<section class="page" id="letterPage">
+
+    <div class="letter">
+
+        <h1>Dear Little Sister ❤️</h1>
+
+        <p>My dear little princess,</p>
+
+        <p>
+            I don't know whether I tell you this enough,
+            but having you as my little sister is one of
+            the greatest gifts life has given me.
+        </p>
+
+        <p>
+            We may fight, argue, tease each other and
+            sometimes annoy each other. But no matter
+            what happens, you will always have a special
+            place in my heart. As you know, without you
+            my life is incomplete.
+        </p>
+
+        <p>
+            I may not be the perfect brother, and I may
+            not always express my feelings, but I promise
+            that I will always be there for you.
+        </p>
+
+        <p>
+            I wish you a life filled with happiness,
+            success, beautiful memories and endless love.
+            Never stop smiling and never stop chasing
+            your dreams.
+        </p>
+
+        <p>
+            No matter how old you grow, you will always
+            be my little sister. ❤️
+        </p>
+
+        <p>
+            Happy Birthday once again, Princess! 🎂
+        </p>
+
+        <h2 style="text-align:right;margin-top:20px;">
+            With lots of love,<br>
+            Your Brother ❤️
+        </h2>
+
+    </div>
+
+    <h2 style="margin-top:25px;color:#fff;">
+        Forever your biggest supporter! 🥹
+    </h2>
+
+</section>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="music" loop>
+    <source src="heart.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* =========================
+   SETTINGS
+========================= */
+
+const SECRET_PASSWORD = "heart";
+
+const backgroundPhotos = [
+    "heart1.jpg",
+    "heart3.jpeg",
+    "heart8.jpg",
+    "heart5.jpeg",
+    "heart9.jpg"
+];
+
+/* =========================
+   BACKGROUND SLIDESHOW
+========================= */
+
+let currentPhoto = 0;
+let showingA = true;
+
+const bgA = document.getElementById("bgA");
+const bgB = document.getElementById("bgB");
+
+// Set first photo
+bgA.style.backgroundImage = `url('${backgroundPhotos[0]}')`;
+
+// Preload photos
+backgroundPhotos.forEach(photo => {
+    const img = new Image();
+    img.src = photo;
+});
+
+// Slideshow
+setInterval(() => {
+
+    currentPhoto = (currentPhoto + 1) % backgroundPhotos.length;
+
+    const nextBackground = showingA ? bgB : bgA;
+    const previousBackground = showingA ? bgA : bgB;
+
+    nextBackground.style.backgroundImage =
+        `url('${backgroundPhotos[currentPhoto]}')`;
+
+    nextBackground.classList.add("active");
+    previousBackground.classList.remove("active");
+
+    showingA = !showingA;
+
+}, 4000);
+
+/* =========================
+   UNLOCK
+========================= */
+
+function unlock() {
+
+    const entered = document.getElementById("password").value;
+
+    if (entered === SECRET_PASSWORD) {
+
+        document.getElementById("error").innerText = "";
+
+        showPage("giftsPage");
+
+        // Music begins after user interaction
+        const music = document.getElementById("music");
+
+        music.volume = 0.6;
+
+        music.play().catch(() => {
+            console.log("Music playback was blocked");
+        });
+
+    } else {
+
+        document.getElementById("error").innerText =
+            "Oops! Wrong password. Try again ❤️";
+
+    }
+
+}
+
+// Enter key also unlocks
+document.getElementById("password").addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        unlock();
+    }
+
+});
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function showPage(pageId) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+/* =========================
+   OPEN GIFT
+========================= */
+
+function openBirthday() {
+
+    showPage("birthdayPage");
+
+    createHearts();
+
+}
+
+/* =========================
+   BLOW CANDLES
+========================= */
+
+let candleBlown = false;
+
+function blowCandles() {
+
+    if (candleBlown) return;
+
+    candleBlown = true;
+
+    document.getElementById("cake").classList.add("blown");
+
+    document.getElementById("cake").innerHTML = "🍰";
+
+    document.getElementById("cakeMessage").innerHTML =
+        "Your wish is on its way to the universe! ✨❤️";
+
+    createHearts();
+
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHearts() {
+
+    for (let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+
+            heart.innerHTML =
+                ["❤️", "💗", "💕", "💖", "✨"]
+                [Math.floor(Math.random() * 5)];
+
+            heart.style.left = Math.random() * 100 + "vw";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+
+        }, i * 100);
+
+    }
+
+}
+
+/* =========================
+   AUTOMATIC HEARTS
+========================= */
+
+setInterval(() => {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "💗";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+
+}, 1500);
+
+</script>
+
+</body>
+</html>
